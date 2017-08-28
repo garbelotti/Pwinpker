@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bem vindo ao Pwinpker</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script>
+      function $(id) {
+            return document.getElementById(id);
+        }
+      
+        
+        
+  </script>
+</head>
+<body>
+
+<div id="mainDiv" class="container-fluid">
+    <header class="row">
+        <div role="main" id="mainHeader" class="col-md-6 col-md-push-1">
+            <div class="media">
+              <div class="media-left">
+                <a href="#">
+                  <img class="media-object" src="assets/img/Pwinpker-icon.png" alt="Pwinpker Icon">
+                </a>
+              </div>
+            </div>
+        </div>
+        <aside role="complementary" id="compHeader" class="col-md-4 col-md-push-1">
+        </aside>
+    </header>
+    <div class="row">
+        <div id="blockDiv" role="main" class="col-md-5 col-md-push-2">
+            <h1><strong>Bem vindo ao Pwinpker.</strong></h1>
+            <h2><p>
+                Conecte-se com seus amigos ou frutas que você quer seguir. Saiba das últimas novidades, em tempo real, e de todos os ângulos.
+            </p></h2>   
+        </div>
+        <aside role="complementary" class="col-md-3 col-md-push-2">
+           
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <form class="form" role="form">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon2">@</span>
+                        <input type="text" class="form-control" placeholder="Usuário" aria-describedby="sizing-addon2" id="usr">
+                    </div>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Senha" id = "psw">
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-primary" id="btLogin"></span> Entrar</button>                    
+                      </span>
+                    </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title"><b>Novo no Pwinpker?</b> Inscreva-se</h3>
+              </div>
+              <div class="panel-body">
+                <form  class="form"  id="cadForm"  >
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Nome Completo" aria-describedby="sizing-addon2" id = "nome">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="email" aria-describedby="sizing-addon2" id = "mail">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Senha" id = "senha">
+                    </div>
+                    <button type="button" class="btn btn-warning btn-lg" id="btCad"><span class="glyphicon glyphicon-edit"></span> Inscreva-se</button>                    
+                </form>
+              </div>
+            </div>
+        </aside>
+    </div>
+    <footer class="row">
+      <div role="main" id="mainFooter" class="col-md-5 col-md-push-2">
+          
+      </div>
+      <aside role="complementary" id="compFooter" class="col-md-3 col-md-push-2">
+          
+      </aside>
+    </footer>
+</div>
+<script type="text/javascript">
+      var windowHeigth = screen.height;
+      var height = screen.height*0.9;
+      var my_px = "px";
+      height += "px";
+      $("mainDiv").style.height = height;
+
+        //login do usuario
+      $("btLogin").onclick=function(){
+          S="log=1" + "&usr=" + $("usr").value + "&psw=" + $("psw").value;
+          var login = new XMLHttpRequest();
+          login.open("POST", "./bd", true);
+          login.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          
+          login.onreadystatechange = function() {
+          if (login.readyState==4 && login.status==200) {
+          var resp = login.responseText;
+          alert(resp);
+            }
+             };
+           login.send(S);
+      };
+      
+      //cadastro usuario
+      $("btCad").onclick=function(){
+          S="cad=1" + "&nome=" + $("nome").value + "&mail=" + $("mail").value + "&senha=" + $("senha").value;
+          var cadastrar = new XMLHttpRequest();
+          cadastrar.open("POST", "./bd", true);
+          cadastrar.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          cadastrar.setRequestHeader("Content-length", S.length);
+          cadastrar.setRequestHeader("Connection", "close");
+          cadastrar.onreadystatechange = function() {
+          if (cadastrar.readyState==4 && cadastrar.status==200) {
+          var resp = cadastrar.responseText;
+          alert(resp);
+            }
+             };
+           cadastrar.send(S);
+      };
+    </script>
+
+</body>
+</html>

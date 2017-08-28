@@ -1,0 +1,60 @@
+/* style.css */
+html { 
+  background: url('../assets/img/Pwinpker-background.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.container, .container-fluid {
+ padding-right: 15px;
+ padding-left: 15px;
+ background-color: #f9f9f9;
+}
+.row {
+ margin-bottom: 20px;
+}
+[class*="col-"], footer, header, nav, aside, section, div[role="main"] {
+ padding-top: 15px;
+ padding-bottom: 15px;
+ background-color: #f5f5f5;
+ background-color: rgba(86,61,124,.15);
+ border: 1px solid #ddd;
+ border: 1px solid rgba(86,61,124,.2);
+ text-align: center;
+}
+div[class="widget"]{
+	 padding-top: 5px;
+	 padding-bottom: 5px;
+	 background-color: #f5f5f5;
+	 background-color: rgba(86,61,124,.15);
+	 border: 1px solid #ddd;
+	 border: 1px solid rgba(86,61,124,.2);
+	 margin-top: 15px;
+	 text-align: center;
+}
+div[class="input-group"]{
+	 margin: 15px;
+}
+button[class="btn btn-warning btn-lg"]{
+	 margin-right: 1px;
+}
+
+
+div[role="main"] {
+ background-color: #fff;
+}
+div[role="main"], nav, aside {
+ height: 800px;
+ text-align: left;
+}
+#mainHeader, #compHeader { 
+    height: 40px;
+    padding-top: 0px;
+ 	padding-bottom: 0px;
+}
+#mainFooter, #compFooter { 
+    height: 40px;
+    padding-top: 0px;
+ 	padding-bottom: 0px;
+}
